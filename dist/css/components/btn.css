@@ -1,0 +1,35 @@
+.btn-primary {
+  --bs-btn-bg: #265073;
+  --bs-btn-border-color: #265073;
+  --bs-btn-hover-bg: #2d9596;
+  --bs-btn-hover-border-color: #2d9596;
+  --bs-btn-active-bg: #9ad0c2;
+  --bs-btn-active-border-color: #9ad0c2;
+  --bs-btn-disabled-bg: #1a5758;
+  --bs-btn-disabled-border-color: #1a5758;
+}
+
+.btn-secondary {
+  --bs-btn-hover-bg: #2d9596;
+  --bs-btn-hover-border-color: #2d9596;
+}
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: #2d9596;
+}
+
+.navbar-nav {
+  --bs-nav-link-padding-x: 0;
+  --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-font-weight: ;
+  --bs-nav-link-color: var(--bs-navbar-color);
+  --bs-nav-link-hover-color: #2d9596;
+  --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+/*# sourceMappingURL=btn.css.map */

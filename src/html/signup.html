@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Description" content="MyTweet is a social media, where you can share your thoughts to the world">
+    <link rel="stylesheet" href="../../dist/css/main.css" />
+    <link rel="icon" href="../img/mytweeticon.png" />
+    <title>myTweet | Login Page</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div
+          class="container mt-5 d-flex flex-column align-items-center"
+        >
+          <img
+            class="img-fluid mt-3 mb-3"
+            style="height: 50px"
+            src="../img/MyTweet.png"
+            alt="logo"
+          />
+          <div class="container text-center mb-3">
+            <p class="mb-0">Already have an account, just created one?</p>
+            <a href="../../index.html">Login</a>
+          </div>
+          <form class="reg-form" action="#" method="get">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="regUsernameInput"
+                placeholder="Username"
+              />
+              <label for="regUsernameInput">Username</label>
+            </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="regEmailInput"
+              placeholder="name@example.com"
+            />
+            <label for="regEmailInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="regPasswordInput"
+              minlength="8"
+              required
+              placeholder="Password"
+            />
+            <label for="regPasswordInput">Password</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="RegConfirmPasswordInput"
+              placeholder="Confirm Password"
+            />
+            <label for="RegConfirmPasswordInput">Confirm Password</label>
+          </div>
+          <div class=" text-left" id="regMessage">
+            <!-- <p class="mt-1" style="color:rgb(178, 0, 0)">Password does not match ❌</p> -->
+            <!-- <p class="mt-1" style="color:rgb(178, 119, 0)">Please fill in the Username field ⚠️</p> -->
+             <!-- <p class="mt-1" style="color:rgb(13, 120, 1)">Account has been created ✅</p> -->
+            <!-- <p class="mt-1" style="color:rgb(178, 0, 0)">`An Error has Occured during the registration 😔</p> -->
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-3" id="regSignupBtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+      </section>
+    </main>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js" type="module" ></script>
+  </body>
+</html>

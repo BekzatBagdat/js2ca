@@ -1,0 +1,23 @@
+.card {
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card-header {
+  color: #ebebeb;
+  background: linear-gradient(90deg, rgb(45, 149, 150) 0%, rgb(38, 80, 112) 50%, rgb(154, 208, 194) 100%);
+  border: none;
+}
+
+.post-profile-img {
+  max-height: 80px;
+  box-shadow: rgb(45, 149, 150) 0px 5px 15px;
+}
+
+.card-title a {
+  color: rgb(0, 0, 0);
+}
+
+/*# sourceMappingURL=card.css.map */
