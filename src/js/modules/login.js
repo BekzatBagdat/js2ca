@@ -46,16 +46,19 @@ const loginUser = (e) => {
         body: JSON.stringify(userData),
       });
       const json = await res.json();
-      console.log(json);
       const accessToken = json.accessToken;
+      localStorage.setItem("accessToken", accessToken);
+
       if (accessToken === undefined) {
         loginMessageContainer.innerHTML = `<p class="mt-1" style="color:rgb(178, 0, 0)">Wrong Email or Password, please try again</p>`;
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("username");
       }
+
       if (accessToken) {
         loginMessageContainer.innerHTML = " ";
-      }
-      if (json.ok) {
-        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("username", json.name);
+        window.location.href = "src/profile.html";
       }
     } catch (error) {
       loginMessageContainer.innerHTML = `<p class="mt-1" style="color:rgb(178, 0, 0)">An Error has Occured during the registration 😔 ${error}</p>`;
