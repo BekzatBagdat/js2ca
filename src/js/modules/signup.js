@@ -5,7 +5,7 @@ const API_BASE_URL = "https://api.noroff.dev";
 const regForm = document.querySelector(".reg-form");
 
 /*Function to register user*/
-const regUser = (e) => {
+const signUpUser = (e) => {
   /*Prevent default*/
   e.preventDefault();
 
@@ -56,7 +56,7 @@ const regUser = (e) => {
   formValidation();
 
   /*POST registered User data API*/
-  const postRegUser = async (url, userData) => {
+  const regUser = async (url, userData) => {
     try {
       //API Call
       const res = await fetch(url, {
@@ -75,7 +75,14 @@ const regUser = (e) => {
     }
   };
   const regURL = `${API_BASE_URL}/api/v1/social/auth/register`;
-  postRegUser(regURL, userData);
+  regUser(regURL, userData);
 };
 
-export { regForm, regUser };
+/*Run the user registration function if it exist in the document*/
+const runUserReg = () => {
+  if (regForm) {
+    regForm.addEventListener("submit", signUpUser);
+  }
+};
+
+export { runUserReg };

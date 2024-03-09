@@ -1,4 +1,5 @@
-import { regForm, regUser } from "./modules/signup.js";
+import { runUserReg } from "./modules/signup.js";
+import { runUserLogin } from "./modules/login.js";
 
-/*Sign Up*/
-regForm.addEventListener("submit", regUser);
+runUserReg();
+runUserLogin();
