@@ -4,57 +4,6 @@ const postURL = `${API_BASE_URL}/api/v1/social/posts`;
 const postsContainer = document.querySelector(".feed-posts-section");
 const tweetBtn = document.querySelector("#createTweetBtn");
 
-const createPost = () => {
-  const title = document.querySelector("#postTweetTitleInput").value;
-  const body = document.querySelector("#postTweetInput").value;
-
-  /*Saving user input*/
-  let tweetData = {
-    title: title,
-    body: body,
-  };
-  const createApiCall = async (url, tweetData) => {
-    try {
-      //Get accesstoken
-      const token = localStorage.getItem("accessToken");
-      //API Call
-      const res = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(tweetData),
-      });
-      const json = await res.json();
-      localStorage.setItem("posts", JSON.stringify(json));
-      window.location.reload();
-
-      console.log(json);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  createApiCall(postURL, tweetData);
-};
-const getPosts = async (url) => {
-  try {
-    const token = localStorage.getItem("accessToken");
-    const res = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    const json = await res.json();
-    localStorage.setItem("posts", JSON.stringify(json));
-  } catch (error) {
-    console.log(error);
-  }
-  displayPosts();
-};
-
 const displayPosts = () => {
   postsContainer.innerHTML = "";
   const posts = JSON.parse(localStorage.posts);
@@ -86,6 +35,7 @@ const displayPosts = () => {
     /*Saving Post.Id*/
     const postID = post.id;
     /*create HTML*/
+
     const html = `
       <div class="container card text-bg-light mb-5 tweet-single-post">
             <div class="card-header d-flex align-items-center flex-column">
@@ -96,7 +46,7 @@ const displayPosts = () => {
               />
               <p class="mt-2 mb-0 post-date">${formattedDate}</p>
               <div class="dropdown-center mt-3 mb-3">
-        
+
                 <button
                   class="btn btn-secondary dropdown-toggle"
                   type="button"
@@ -106,10 +56,10 @@ const displayPosts = () => {
                 Edit
                 </button>
                 <!-- Invisible span to store post ID -->
-                <span class="post-id" data-post-id="${postID}" style="display: none;"></span>
                 <ul class="dropdown-menu">
                   <li>
                     <!-- Button trigger modal -->
+                    <span class="post-id" data-post-id="${postID}" style="display: none;"></span>
                     <a
                       type="button"
                       id="updateTrigger"
@@ -118,7 +68,7 @@ const displayPosts = () => {
                       data-bs-target="#updateTweetModal"
                       data-post-id="${postID}"
                     >
-                    
+
                       Update
                     </a>
                   </li>
@@ -137,9 +87,9 @@ const displayPosts = () => {
               </p>
             </div>
           </div>
-          
-      `;
 
+      `;
+    console.log(postID);
     postsContainer.innerHTML += html;
   });
 
@@ -217,6 +167,58 @@ const displayPosts = () => {
     };
     createApiCall(url, tweetData);
   };
+};
+
+const createPost = () => {
+  const title = document.querySelector("#postTweetTitleInput").value;
+  const body = document.querySelector("#postTweetInput").value;
+
+  /*Saving user input*/
+  let tweetData = {
+    title: title,
+    body: body,
+  };
+  const createApiCall = async (url, tweetData) => {
+    try {
+      //Get accesstoken
+      const token = localStorage.getItem("accessToken");
+      //API Call
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(tweetData),
+      });
+      const json = await res.json();
+      localStorage.setItem("posts", JSON.stringify(json));
+      window.location.reload();
+
+      console.log(json);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  createApiCall(postURL, tweetData);
+};
+
+const getPosts = async (url) => {
+  try {
+    const token = localStorage.getItem("accessToken");
+    const res = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const json = await res.json();
+    localStorage.setItem("posts", JSON.stringify(json));
+  } catch (error) {
+    console.log(error);
+  }
+  displayPosts();
 };
 
 getPosts(postURL);

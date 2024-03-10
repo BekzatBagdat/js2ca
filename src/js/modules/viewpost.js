@@ -1,4 +1,4 @@
-const displayInfo = () => {
+const displayViewPost = () => {
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
 
@@ -28,4 +28,4 @@ const displayInfo = () => {
   container.innerHTML = html;
 };
 
-export { displayInfo };
+export { displayViewPost };
