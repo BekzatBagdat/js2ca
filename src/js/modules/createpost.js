@@ -54,9 +54,11 @@ const getPosts = async (url) => {
   }
   displayPosts();
 };
+
 const displayPosts = () => {
   postsContainer.innerHTML = "";
   const posts = JSON.parse(localStorage.posts);
+
   posts.forEach((post) => {
     /*Convert Date*/
     const orgDate = post.created;
@@ -137,6 +139,7 @@ const displayPosts = () => {
           </div>
           
       `;
+
     postsContainer.innerHTML += html;
   });
 
