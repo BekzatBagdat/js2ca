@@ -8,7 +8,7 @@
       content="MyTweet is a social media, where you can share your thoughts to the world"
     />
     <link rel="stylesheet" href="../../dist/css/main.css" />
-    <link rel="icon" href="../img/mytweeticon.png" />
+    <link rel="icon" href="img/mytweeticon.png" />
     <title>myTweet | Feed page</title>
   </head>
   <body>
@@ -72,8 +72,16 @@
               Sort By
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Date Ascending</a></li>
-              <li><a class="dropdown-item" href="#">Date Descending</a></li>
+              <li>
+                <a class="dropdown-item" href="#" id="dateAsc"
+                  >Date Ascending</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" id="dateDesc"
+                  >Date Descending</a
+                >
+              </li>
             </ul>
           </div>
 
@@ -92,148 +100,115 @@
         </div>
       </section>
 
-      <section class="feed-posts-section mt-5 mt-5">
-        <div class="container card text-bg-light mb-5">
-          <div class="card-header d-flex align-items-center flex-column">
-            <img
-              src="img/defaultProfilePicture.png"
-              class="rounded-circle mt-3 mb-1 post-profile-img"
-              alt="Profile Picture"
-            />
-            <p class="mt-2 mb-0 post-date">@jondoe12</p>
-            <p class="mt-2 mb-0 post-date">March 8, 2024</p>
-            <div class="dropdown-center mt-3 mb-3">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Edit
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <!-- Button trigger modal -->
-                  <a
-                    type="button"
-                    class="dropdown-item"
-                    data-bs-toggle="modal"
-                    data-bs-target="#updateTweetModal"
-                  >
-                    Update
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" style="color: red" href="#"
-                    >Delete</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">
-              <a id="postH5" href="post.html">Hello World</a>
-            </h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
+      <section class="feed-posts-section mt-5 mt-5"></section>
 
-    <!-- Modal Post a tweet -->
-    <div
-      class="modal fade"
-      id="postTweetModal"
-      tabindex="-1"
-      aria-labelledby="#postTweetModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="postTweetModalLabel">
-              Post Your Tweet
-            </h1>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="postTweetTitleInput" class="form-label">Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="postTweetTitleInput"
-              />
+      <!-- Modal Post a tweet -->
+      <div
+        class="modal fade"
+        id="postTweetModal"
+        tabindex="-1"
+        aria-labelledby="#postTweetModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="postTweetModalLabel">
+                Post Your Tweet
+              </h1>
             </div>
-            <div class="mb-3">
-              <label for="postTweetInput" class="form-label">Your Tweet</label>
-              <textarea
-                class="form-control"
-                id="postTweetInput"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">Tweet</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal Update -->
-    <div
-      class="modal fade"
-      id="updateTweetModal"
-      tabindex="-1"
-      aria-labelledby="#updateTweetModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="updateTweetModalLabel">
-              Update your Tweet
-            </h1>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="UpdateTitleInput" class="form-label">Title</label>
-              <input type="text" class="form-control" id="UpdateTitleInput" />
-            </div>
-            <div class="mb-3">
-              <label for="updateTweetInput" class="form-label"
-                >Your Tweet</label
-              >
-              <textarea
-                class="form-control"
-                id="updateTweetInput"
-                rows="3"
-              ></textarea>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">Update</button>
+            <div class="modal-body post-tweet-form">
+              <div class="mb-3">
+                <label for="postTweetTitleInput" class="form-label"
+                  >Title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="postTweetTitleInput"
+                />
+              </div>
+              <div class="tweet-message-container"></div>
+              <div class="mb-3">
+                <label for="postTweetInput" class="form-label"
+                  >Your Tweet</label
+                >
+                <textarea
+                  class="form-control"
+                  id="postTweetInput"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                  id="tweetCloseBtn"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="createTweetBtn"
+                >
+                  Tweet
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- Modal Update -->
+      <div
+        class="modal fade"
+        id="updateTweetModal"
+        tabindex="-1"
+        aria-labelledby="#updateTweetModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="updateTweetModalLabel">
+                Update your Tweet
+              </h1>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="updateTitleInput" class="form-label">Title</label>
+                <input type="text" class="form-control" id="updateTitleInput" />
+              </div>
+              <div class="mb-3">
+                <label for="updateTweetInput" class="form-label"
+                  >Your Tweet</label
+                >
+                <textarea
+                  class="form-control"
+                  id="updateTweetInput"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary update-btns">
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>
