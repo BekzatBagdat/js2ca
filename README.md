@@ -18,7 +18,7 @@ Website has
 
 ## Links
 
-- [Site Deployment](https://myopinion-bekzatbagdat.netlify.app/)
+- [Site Deployment](https://mytweet-bekzatbagdat.netlify.app/)
 - [Trello](https://trello.com/invite/b/Ze9MSH2R/ATTIbc768bb621548a894bcabfb5720ffd246F5A110F/js2)
 
 ## Contact
